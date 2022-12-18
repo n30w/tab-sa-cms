@@ -25,6 +25,9 @@ const Media: CollectionConfig = {
         width: 400,
         height: 300,
         position: 'centre',
+        formatOptions: {
+          format: 'jpeg',
+        },
       },
     ],
     adminThumbnail: 'thumbnail',

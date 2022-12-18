@@ -1,6 +1,15 @@
 # tab-sa-cms
 
-This project was created using create-payload-app using the ts-blank template.
+## Useful Links
+
+### Digital Ocean
+
+- [Creating API keys with Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-create-a-digitalocean-space-and-api-key)
+- [Spaces S3 SDK Examples](https://docs.digitalocean.com/products/spaces/reference/s3-sdk-examples/)
+
+### Mischellaneous
+
+- [Ignoring stuff in Prettier](https://prettier.io/docs/en/ignore.html)
 
 ## How to Use
 
