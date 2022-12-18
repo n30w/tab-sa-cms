@@ -8,7 +8,31 @@ const Posts: CollectionConfig = {
     group: "Content",
   },
   access: {
-    read: () => true,
+    read: ({ req }) => {
+      // Returns all docs if logged in, if not
+      // returns only the published ones
+      if (req.user) return true;
+
+      return {
+        or: [
+          {
+            _status: {
+              equals: "published",
+            },
+          },
+          {
+            _status: {
+              exists: false,
+            },
+          },
+        ],
+      };
+    },
+  },
+  versions: {
+    drafts: {
+      autosave: true,
+    },
   },
   fields: [
     {

@@ -4,6 +4,7 @@ import path from "path";
 import Users from "./collections/Users";
 import Posts from "./collections/Posts";
 import Categories from "./collections/Categories";
+import Staff from "./collections/Staff";
 
 export default buildConfig({
   serverURL: "http://localhost:4000",
@@ -14,6 +15,7 @@ export default buildConfig({
     Users,
     Posts,
     Categories,
+    Staff,
     // Add Collections here
     // Examples,
   ],
