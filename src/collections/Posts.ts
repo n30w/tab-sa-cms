@@ -1,13 +1,16 @@
-import { CollectionConfig } from "payload/types";
+import { CollectionConfig } from 'payload/types';
+import { isAdmin } from '../access/isAdmin';
+import categoryRelationship from '../fields/categoryRelationship';
 
 const Posts: CollectionConfig = {
-  slug: "posts",
+  slug: 'posts',
   admin: {
-    useAsTitle: "title",
-    defaultColumns: ["title", "author", "date", "category"],
-    group: "Content",
+    useAsTitle: 'title',
+    defaultColumns: ['title', 'author', 'year'],
+    group: 'Content',
   },
   access: {
+    create: isAdmin,
     read: ({ req }) => {
       // Returns all docs if logged in, if not
       // returns only the published ones
@@ -17,7 +20,7 @@ const Posts: CollectionConfig = {
         or: [
           {
             _status: {
-              equals: "published",
+              equals: 'published',
             },
           },
           {
@@ -28,6 +31,9 @@ const Posts: CollectionConfig = {
         ],
       };
     },
+    readVersions: isAdmin,
+    update: isAdmin,
+    delete: isAdmin,
   },
   versions: {
     drafts: {
@@ -36,47 +42,37 @@ const Posts: CollectionConfig = {
   },
   fields: [
     {
-      name: "title",
-      type: "text",
+      name: 'title',
+      type: 'text',
       required: true,
     },
     {
-      name: "author",
-      type: "text",
+      name: 'author',
+      type: 'text',
       required: true,
     },
+    categoryRelationship,
     {
-      name: "date",
-      type: "date",
-      label: "Date",
-    },
-    {
-      name: "category",
-      type: "relationship",
-      relationTo: "categories",
-      hasMany: true,
-    },
-    {
-      name: "body", // required
-      type: "richText", // required
+      name: 'body', // required
+      type: 'richText', // required
       defaultValue: [
         {
-          children: [{ text: "Start typing here" }],
+          children: [{ text: 'Start typing here' }],
         },
       ],
       required: true,
       admin: {
-        elements: ["h2", "h3", "h4", "link"],
-        leaves: ["bold", "italic"],
+        elements: ['h2', 'h3', 'h4', 'link'],
+        leaves: ['bold', 'italic'],
         link: {
           // Inject your own fields into the Link element
           fields: [
             {
-              name: "rel",
-              label: "Rel Attribute",
-              type: "select",
+              name: 'rel',
+              label: 'Rel Attribute',
+              type: 'select',
               hasMany: true,
-              options: ["noopener", "noreferrer", "nofollow"],
+              options: ['noopener', 'noreferrer', 'nofollow'],
             },
           ],
         },
@@ -84,8 +80,16 @@ const Posts: CollectionConfig = {
           collections: {
             media: {
               fields: [
-                // any fields that you would like to save
-                // on an upload element in the `media` collection
+                {
+                  name: 'title',
+                  type: 'text',
+                  required: true,
+                },
+                {
+                  name: 'alt',
+                  type: 'text',
+                  required: true,
+                },
               ],
             },
           },

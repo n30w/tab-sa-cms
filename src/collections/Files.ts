@@ -2,8 +2,8 @@ import { CollectionConfig } from 'payload/types';
 import { isAdmin } from '../access/isAdmin';
 import categoryRelationship from '../fields/categoryRelationship';
 
-const Media: CollectionConfig = {
-  slug: 'media',
+const Files: CollectionConfig = {
+  slug: 'files',
   admin: {
     useAsTitle: 'title',
     group: 'Content',
@@ -21,30 +21,19 @@ const Media: CollectionConfig = {
       required: true,
     },
     {
-      name: 'alt',
-      type: 'text',
+      name: 'description',
+      type: 'textarea',
       required: true,
     },
     categoryRelationship,
   ],
   upload: {
-    staticURL: '/media',
-    staticDir: 'media',
-    imageSizes: [
-      {
-        name: 'thumbnail',
-        width: 400,
-        height: 300,
-        position: 'centre',
-        formatOptions: {
-          format: 'jpeg',
-        },
-      },
-    ],
+    staticURL: '/files',
+    staticDir: 'files',
     adminThumbnail: 'thumbnail',
-    mimeTypes: ['image/*', 'image/png', 'audio/*', 'video/*'],
+    mimeTypes: ['application/pdf'],
     disableLocalStorage: true,
   },
 };
 
-export default Media;
+export default Files;
