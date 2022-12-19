@@ -6,7 +6,28 @@
 // in this case.
 
 import { CollectionConfig } from 'payload/types';
+import { Staff } from '../payload-types';
+import { StaffGrid } from '../blocks/StaffGrid';
+import { pageLayouts } from '../fields/pageLayouts';
 
-const Pages: CollectionConfig = {};
+const Pages: CollectionConfig = {
+  slug: 'pages',
+  admin: {
+    useAsTitle: 'title',
+    defaultColumns: ['title'],
+    group: 'Content',
+  },
+  access: {
+    read: () => true,
+  },
+  fields: [
+    {
+      name: 'title',
+      label: 'Page Name',
+      type: 'text',
+    },
+    pageLayouts,
+  ],
+};
 
 export default Pages;

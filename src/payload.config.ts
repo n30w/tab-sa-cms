@@ -8,14 +8,14 @@ import Categories from './collections/Categories';
 import Staff from './collections/Staff';
 import Media from './collections/Media';
 import Files from './collections/Files';
-import Components from './collections/Components';
+import Pages from './collections/Pages';
 
 export default buildConfig({
   serverURL: 'http://localhost:4000',
   admin: {
     user: Users.slug,
   },
-  collections: [Users, Posts, Categories, Staff, Media, Files, Components],
+  collections: [Users, Posts, Categories, Staff, Media, Files, Pages],
   rateLimit: {
     trustProxy: true,
     window: 2 * 60 * 1000, // 2 minutes
