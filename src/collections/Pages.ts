@@ -9,6 +9,7 @@ import { CollectionConfig } from 'payload/types';
 import { Staff } from '../payload-types';
 import { StaffGrid } from '../blocks/StaffGrid';
 import { pageLayouts } from '../fields/pageLayouts';
+import { regeneratePage } from '../utils/regeneratePage';
 
 const Pages: CollectionConfig = {
   slug: 'pages',
@@ -19,6 +20,17 @@ const Pages: CollectionConfig = {
   },
   access: {
     read: () => true,
+  },
+  hooks: {
+    afterChange: [
+      ({ req: { payload }, doc }) => {
+        regeneratePage({
+          payload,
+          collection: 'pages',
+          doc,
+        });
+      },
+    ],
   },
   fields: [
     {

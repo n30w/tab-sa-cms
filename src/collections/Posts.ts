@@ -1,6 +1,7 @@
 import { CollectionConfig } from 'payload/types';
 import { isAdmin } from '../access/isAdmin';
 import categoryRelationship from '../fields/categoryRelationship';
+import { regeneratePage } from '../utils/regeneratePage';
 
 const Posts: CollectionConfig = {
   slug: 'posts',
@@ -39,6 +40,17 @@ const Posts: CollectionConfig = {
     drafts: {
       autosave: true,
     },
+  },
+  hooks: {
+    afterChange: [
+      ({ req: { payload }, doc }) => {
+        regeneratePage({
+          payload,
+          collection: 'posts',
+          doc,
+        });
+      },
+    ],
   },
   fields: [
     {
