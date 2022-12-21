@@ -3,7 +3,7 @@ version: '3'
 services:
 
   payload:
-    image: node:18-alpine
+    image: node:current-alpine
     container_name: payload-production
     ports:
       - "4000:4000"
