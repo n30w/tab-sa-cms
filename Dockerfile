@@ -39,4 +39,4 @@ ENV PORT 4000
 EXPOSE 4000
 
 # Run the server
-CMD ["yarn", "serve"]
+CMD ["node", "./dist/server.js"]
