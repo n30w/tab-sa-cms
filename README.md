@@ -10,9 +10,4 @@
 ### Mischellaneous
 
 - [Ignoring stuff in Prettier](https://prettier.io/docs/en/ignore.html)
-
-## How to Use
-
-`yarn dev` will start up your application and reload on any changes.
-
-If you have docker and docker-compose installed, you can run `docker-compose up`
+- [Setting up an Nginx Reverse Proxy with Docker](https://leangaurav.medium.com/simplest-https-setup-nginx-reverse-proxy-letsencrypt-ssl-certificate-aws-cloud-docker-4b74569b3c61)

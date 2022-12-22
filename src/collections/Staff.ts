@@ -2,6 +2,10 @@ import { CollectionConfig } from 'payload/types';
 
 const Staff: CollectionConfig = {
   slug: 'staff',
+  labels: {
+    singular: 'Staff Member',
+    plural: 'Staff',
+  },
   admin: {
     useAsTitle: 'role',
     defaultColumns: ['firstName', 'lastName', 'role'],
