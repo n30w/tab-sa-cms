@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+
+  payload:
+    image: node:current-alpine
+    container_name: payload-production
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/home/node/app
+      - node_modules:/home/node/app/node_modules
+    working_dir: /home/node/app/
+    command: sh -c "yarn install && yarn add cross-env && yarn build && yarn serve"
+    environment:
+      PORT: 4000
+    env_file:
+      - .env
+
+volumes:
+  data:
+  node_modules:

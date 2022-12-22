@@ -1,9 +1,13 @@
 # tab-sa-cms
 
-This project was created using create-payload-app using the ts-blank template.
+## Useful Links
 
-## How to Use
+### Digital Ocean
 
-`yarn dev` will start up your application and reload on any changes.
+- [Creating API keys with Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-create-a-digitalocean-space-and-api-key)
+- [Spaces S3 SDK Examples](https://docs.digitalocean.com/products/spaces/reference/s3-sdk-examples/)
 
-If you have docker and docker-compose installed, you can run `docker-compose up`
+### Mischellaneous
+
+- [Ignoring stuff in Prettier](https://prettier.io/docs/en/ignore.html)
+- [Setting up an Nginx Reverse Proxy with Docker](https://leangaurav.medium.com/simplest-https-setup-nginx-reverse-proxy-letsencrypt-ssl-certificate-aws-cloud-docker-4b74569b3c61)
