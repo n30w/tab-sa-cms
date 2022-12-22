@@ -11,7 +11,7 @@ import Files from './collections/Files';
 import Pages from './collections/Pages';
 
 export default buildConfig({
-  serverURL: 'http://localhost:4000',
+  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
     user: Users.slug,
   },
