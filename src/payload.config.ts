@@ -11,7 +11,7 @@ import Files from './collections/Files';
 import Pages from './collections/Pages';
 
 export default buildConfig({
-  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL,
+  serverURL: process.env.SERVER_PAYLOAD_PUBLIC_SERVER_URL,
   admin: {
     user: Users.slug,
   },
@@ -30,6 +30,12 @@ export default buildConfig({
         // prettier-ignore
         'media': {
           adapter: s3Client,
+          prefix: 'media/',
+        },
+        // prettier-ignore
+        'files': {
+          adapter: s3Client,
+          prefix: 'files/',
         },
       },
     }),

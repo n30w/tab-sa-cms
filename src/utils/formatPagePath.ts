@@ -9,7 +9,7 @@ export const formatPagePath = (collection: string, doc: any): string => {
         prefix = '';
         break;
       case 'posts':
-        prefix = '/blog';
+        prefix = '/reflections';
         break;
       default:
         prefix = `/${collection}`;

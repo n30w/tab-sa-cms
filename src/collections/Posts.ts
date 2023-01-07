@@ -2,12 +2,13 @@ import { CollectionConfig } from 'payload/types';
 import { isAdmin } from '../access/isAdmin';
 import categoryRelationship from '../fields/categoryRelationship';
 import { regeneratePage } from '../utils/regeneratePage';
+import { richText } from '../fields/richText';
 
 const Posts: CollectionConfig = {
   slug: 'posts',
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'author', 'year'],
+    defaultColumns: ['title', 'author', 'category'],
     group: 'Content',
   },
   access: {
@@ -64,50 +65,7 @@ const Posts: CollectionConfig = {
       required: true,
     },
     categoryRelationship,
-    {
-      name: 'body', // required
-      type: 'richText', // required
-      defaultValue: [
-        {
-          children: [{ text: 'Start typing here' }],
-        },
-      ],
-      required: true,
-      admin: {
-        elements: ['h2', 'h3', 'h4', 'link'],
-        leaves: ['bold', 'italic'],
-        link: {
-          // Inject your own fields into the Link element
-          fields: [
-            {
-              name: 'rel',
-              label: 'Rel Attribute',
-              type: 'select',
-              hasMany: true,
-              options: ['noopener', 'noreferrer', 'nofollow'],
-            },
-          ],
-        },
-        upload: {
-          collections: {
-            media: {
-              fields: [
-                {
-                  name: 'title',
-                  type: 'text',
-                  required: true,
-                },
-                {
-                  name: 'alt',
-                  type: 'text',
-                  required: true,
-                },
-              ],
-            },
-          },
-        },
-      },
-    },
+    richText,
   ],
 };
 

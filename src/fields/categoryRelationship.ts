@@ -6,7 +6,6 @@ const categoryRelationship: Field = {
   relationTo: 'categories',
   label: 'Categories',
   required: true,
-  hasMany: true,
 };
 
 export default categoryRelationship;

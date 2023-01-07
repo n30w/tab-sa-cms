@@ -1,5 +1,6 @@
 import { CollectionConfig } from 'payload/types';
 import CategorySummary from '../components/CategorySummary';
+import { isAdmin } from '../access/isAdmin';
 
 const Categories: CollectionConfig = {
   slug: 'categories',
@@ -9,7 +10,10 @@ const Categories: CollectionConfig = {
     group: 'Management',
   },
   access: {
+    create: isAdmin,
     read: () => true,
+    update: isAdmin,
+    delete: isAdmin,
   },
   fields: [
     {
@@ -17,6 +21,9 @@ const Categories: CollectionConfig = {
       type: 'text',
       label: 'Category',
       required: true,
+      access: {
+        read: () => true,
+      },
     },
     {
       name: 'archived',
