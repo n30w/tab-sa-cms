@@ -19,7 +19,7 @@ services:
 
   payload:
     container_name: 'payload-cms'
-    image: ghcr.io/n30w/tab-sa-cms:dev
+    image: ghcr.io/n30w/tab-sa-cms:main
     ports:
       - 4000:4000
     networks:

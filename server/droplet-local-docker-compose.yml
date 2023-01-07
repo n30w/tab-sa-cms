@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  payload:
+    container_name: 'payload-cms'
+    image: ghcr.io/n30w/tab-sa-cms:main
+    ports:
+      - 4000:4000
+    networks:
+      - app
+    restart: always
+    env_file:
+      - ./.env
+
+networks:
+  app:
+    driver: bridge

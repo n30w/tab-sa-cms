@@ -1,5 +1,6 @@
 import { Field } from 'payload/types';
 import { StaffGrid } from '../blocks/StaffGrid';
+import { richText } from './richText';
 
 export const pageLayouts: Field = {
   name: 'pageLayouts',
@@ -51,6 +52,7 @@ export const pageLayouts: Field = {
           name: 'title',
           type: 'text',
         },
+        richText,
         {
           name: 'order',
           type: 'array',

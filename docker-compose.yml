@@ -3,7 +3,7 @@ version: '3'
 services:
 
   payload:
-    image: node:18-alpine
+    image: node:latest
     ports:
       - "4000:4000"
     volumes:
@@ -11,24 +11,35 @@ services:
       - node_modules:/home/node/app/node_modules
     working_dir: /home/node/app/
     command: sh -c "yarn install && yarn dev"
-    depends_on:
-      - mongo
+    # depends_on:
+    #   - mongo
     environment:
-      MONGODB_URI: mongodb://mongo:27017/payload
       PORT: 4000
       NODE_ENV: development
       PAYLOAD_SECRET: TESTING
+    env_file:
+      - .env
 
-  mongo:
-    image: mongo:latest
-    ports:
-      - "27017:27017"
-    command:
-      - --storageEngine=wiredTiger
-    volumes:
-      - data:/data/db
-    logging:
-      driver: none
+  # nextjs:
+  #   image: node:latest
+  #   ports: "3000:3000"
+  #   volumes:
+  #     - .:/home/node/app
+  #     - node_modules:/home/node/app/node_modules
+  #   working_dir: /home/node/app/
+  #   command: sh -c "yarn install && yarn next dev"
+  #   env_file:
+  #     - .env
+  # mongo:
+  #   image: mongo:latest
+  #   ports:
+  #     - "27017:27017"
+  #   command:
+  #     - --storageEngine=wiredTiger
+  #   volumes:
+  #     - data:/data/db
+  #   logging:
+  #     driver: none
 
 volumes:
   data:

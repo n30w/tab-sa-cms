@@ -19,6 +19,9 @@ const Files: CollectionConfig = {
       name: 'title',
       type: 'text',
       required: true,
+      access: {
+        read: () => true,
+      },
     },
     {
       name: 'description',
