@@ -15,6 +15,10 @@
     "rootDir": "./src",
     "jsx": "react"
   },
+  "paths": {
+    "payload/generated-types": ["./src/payload-types.ts"],
+    "payload/config": ["./src/payload.config.ts"]
+  },
   "include": [
     "src"
   ],
