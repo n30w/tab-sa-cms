@@ -20,7 +20,7 @@ export const regeneratePage = async ({
 
   try {
     const res = await fetch(
-      `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/revalidate?secret=${process.env.PAYLOAD_PRIVATE_NEXTJS_REVALIDATION_KEY}&path=${path}`
+      `${process.env.PAYLOAD_PUBLIC_APP_URL}/api/revalidate?secret=${process.env.PAYLOAD_PRIVATE_NEXTJS_REVALIDATION_KEY}&path="${path}"`
     );
 
     if (res.ok) {

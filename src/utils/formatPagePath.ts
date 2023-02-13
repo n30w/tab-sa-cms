@@ -6,7 +6,7 @@ export const formatPagePath = (collection: string, doc: any): string => {
   if (collection) {
     switch (collection) {
       case 'pages':
-        prefix = '';
+        prefix = '/about';
         break;
       case 'posts':
         prefix = '/impact';
